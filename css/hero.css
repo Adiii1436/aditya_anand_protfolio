@@ -1,0 +1,176 @@
+/* ═══════════════════════════════════════════
+   hero.css — Hero section (name, typed text, avatar)
+   ═══════════════════════════════════════════ */
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dot grid background */
+.hero-dotgrid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(circle, var(--text3) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.4;
+}
+
+/* Radial accent glow */
+.hero-glow {
+  position: absolute;
+  z-index: 0;
+  top: 15%; left: -5%;
+  width: 55vw; height: 55vw;
+  background: radial-gradient(ellipse, rgba(240,144,74,0.055) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 6rem 2.5rem 4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* "hello, world" eyebrow */
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--green);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px; height: 1px;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+/* Main name */
+h1.hero-name {
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.0;
+  margin-bottom: 0.9rem;
+}
+
+/* Typing animation line */
+.hero-typed-line {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  color: var(--text2);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  min-height: 2em;
+}
+.hero-typed-line .typed-word {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Blinking cursor */
+.tcursor {
+  display: inline-block;
+  width: 2px; height: 1em;
+  background: var(--accent);
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Bio paragraph */
+.hero-bio {
+  font-size: 1rem;
+  color: var(--text2);
+  max-width: 460px;
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
+}
+
+/* CTA buttons row */
+.hero-actions {
+  display: flex;
+  gap: 0.875rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Social links row */
+.hero-social {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.hero-social a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color var(--ease);
+}
+.hero-social a:hover { color: var(--accent); opacity: 1; }
+
+/* Avatar card */
+.hero-avatar {
+  width: 240px; height: 240px;
+  border-radius: 20px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--border), 0 24px 60px rgba(0,0,0,0.4);
+}
+.hero-avatar-ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  background: linear-gradient(135deg, rgba(240,144,74,0.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+.avatar-initials {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text3);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.avatar-note {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(15,13,11,0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text3);
+  text-align: center;
+  padding: 0.4rem;
+  border-top: 1px solid var(--border);
+}

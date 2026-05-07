@@ -1,0 +1,150 @@
+/* ═══════════════════════════════════════════
+   base.css — CSS variables, reset, global styles
+   ═══════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:      #0f0d0b;
+  --bg2:     #181512;
+  --bg3:     #221e18;
+  --text:    #e0d8cc;
+  --text2:   #8c8478;
+  --text3:   #504c47;
+  --accent:  #f0904a;
+  --adim:    rgba(240,144,74,0.10);
+  --ablur:   rgba(240,144,74,0.20);
+  --blue:    #5ba3e8;
+  --green:   #3ecf8e;
+  --border:  rgba(255,255,255,0.07);
+  --sans:    'DM Sans', sans-serif;
+  --mono:    'JetBrains Mono', monospace;
+  --r:       12px;
+  --max:     1100px;
+  --ease:    0.25s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity var(--ease);
+}
+a:hover { opacity: 0.72; }
+
+strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── SCROLLBAR ───────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--text3); border-radius: 3px; }
+
+/* ── SECTION BASE ───────────────────────── */
+.section-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 7rem 2.5rem;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+}
+
+/* ── SHARED BUTTONS ─────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  transition: transform var(--ease), box-shadow var(--ease);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--ablur);
+  opacity: 1;
+  color: var(--bg);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: border-color var(--ease), color var(--ease);
+}
+.btn-ghost:hover {
+  border-color: var(--text3);
+  color: var(--text);
+  opacity: 1;
+}
+
+/* ── FADE-IN ANIMATION ──────────────────── */
+.fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade.in {
+  opacity: 1;
+  transform: none;
+}
+.fade.d1 { transition-delay: 0.1s; }
+.fade.d2 { transition-delay: 0.2s; }
+.fade.d3 { transition-delay: 0.3s; }
+
+/* ── FOOTER ──────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text3);
+}
+footer a { color: var(--text3); }
+footer a:hover { color: var(--accent); opacity: 1; }

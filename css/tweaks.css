@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════
+   tweaks.css — Floating tweaks / theme panel
+   ═══════════════════════════════════════════ */
+
+#tweaks-panel {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem; right: 1.5rem;
+  z-index: 999;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  min-width: 210px;
+  flex-direction: column;
+  gap: 1.1rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.tw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tw-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.tw-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text3);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  transition: color var(--ease);
+}
+.tw-close:hover { color: var(--text); }
+
+.tw-label {
+  font-size: 0.68rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+
+.tw-swatches {
+  display: flex;
+  gap: 0.5rem;
+}
+.tw-swatch {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--ease), border-color var(--ease);
+}
+.tw-swatch:hover { transform: scale(1.15); }
+.tw-swatch.sel   { border-color: rgba(255,255,255,0.5); }
+
+.tw-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 -0.25rem;
+}
+
+.tw-note {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text3);
+  line-height: 1.5;
+}

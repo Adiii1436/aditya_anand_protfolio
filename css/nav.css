@@ -1,0 +1,58 @@
+/* ═══════════════════════════════════════════
+   nav.css — Top navigation bar
+   ═══════════════════════════════════════════ */
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2.5rem;
+  background: rgba(15,13,11,0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.nav-logo em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text2);
+  letter-spacing: 0.02em;
+}
+.nav-links a:hover { color: var(--text); opacity: 1; }
+.nav-links a.active { color: var(--accent); opacity: 1; }
+
+.btn-nav {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent) !important;
+  border: 1px solid rgba(240,144,74,0.35);
+  padding: 0.375rem 0.9rem;
+  border-radius: 6px;
+  transition: background var(--ease), color var(--ease), opacity var(--ease) !important;
+}
+.btn-nav:hover {
+  background: var(--accent) !important;
+  color: var(--bg) !important;
+  opacity: 1 !important;
+}
