@@ -11,22 +11,34 @@
   /* Section padding */
   .section-wrap { padding: 5rem 1.25rem; }
 
-  /* Hero — avatar top-left, content stacked below */
+  /* Hero — avatar as profile photo above name on mobile */
   .hero-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
     padding: 5rem 1.25rem 3rem;
   }
   .hero-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 14px;
+    order: -1;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
     flex-shrink: 0;
-    align-self: flex-start;
+    margin-right: 1rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 0 0 1px var(--border), 0 8px 24px rgba(0,0,0,0.3);
   }
-  .avatar-initials { font-size: 2rem; }
-  .avatar-note { font-size: 0.55rem; padding: 0.3rem; }
+  .hero-avatar-ring { border-radius: 50%; }
+  .avatar-initials { font-size: 1.5rem; }
+  .avatar-note { display: none; }
+  .hero-eyebrow {
+    margin-bottom: 0.8rem;
+    flex-basis: calc(100% - 80px);
+  }
+  .hero-content {
+    flex-basis: 100%;
+  }
   h1.hero-name { font-size: 2rem; }
   .hero-typed-line { font-size: 1rem; }
   .hero-bio { font-size: 0.9rem; }
