@@ -11,13 +11,24 @@
   /* Section padding */
   .section-wrap { padding: 5rem 1.25rem; }
 
-  /* Hero stacks vertically */
+  /* Hero — avatar left, text right, reduced top padding */
   .hero-inner {
-    flex-direction: column-reverse;
-    gap: 2rem;
-    padding: 7rem 1.25rem 4rem;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 5rem 1.25rem 3rem;
   }
-  .hero-avatar { width: 160px; height: 160px; }
+  .hero-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+  .avatar-initials { font-size: 2rem; }
+  .avatar-note { font-size: 0.55rem; padding: 0.3rem; }
+  h1.hero-name { font-size: 2rem; }
+  .hero-typed-line { font-size: 1rem; }
+  .hero-bio { font-size: 0.9rem; }
 
   /* Two-column grids collapse */
   .about-grid,
@@ -29,6 +40,28 @@
   /* Two-column certs collapse */
   .certs-grid { grid-template-columns: 1fr; }
 
-  /* Timeline meta column narrows */
-  .tl-item { grid-template-columns: 90px 1px 1fr; gap: 0 1.25rem; }
+  /* Experience — collapse timeline into stacked cards */
+  .tl-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 2rem;
+    border-left: 2px solid var(--border);
+    padding-left: 1.25rem;
+    margin-left: 0.5rem;
+    position: relative;
+  }
+  .tl-track { display: none; }
+  .tl-meta  { text-align: left; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 4px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .tl-item:nth-child(2)::before { background: var(--blue); }
+  .tl-bullets li { font-size: 0.875rem; }
 }
